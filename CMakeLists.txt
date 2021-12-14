@@ -23,4 +23,4 @@ target_link_libraries(DoubleNodeTest
 
 enable_testing()
 add_test(test_run
-        ${CMAKE_SOURCE_DIR}/build/test/test_run)
+        ${PROJECT_SOURCE_DIR}/bin/DoubleNodeTest)
