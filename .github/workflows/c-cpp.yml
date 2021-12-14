@@ -1,0 +1,27 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Display github.workspace
+      run: |
+        echo "github.workspace is ${{ github.workspace }}."
+        ls ${{ github.workspace }}
+    - name: CMAKE Build
+      run: |
+        cd ${{ github.workspace }}
+        mkdir build
+        cd build
+        cmake ..
+    - name: MAKE
+      run: make
+    - name: Run TEST
+      run: make test
