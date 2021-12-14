@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "DoubleLinkedList/DoubleLink.h"
+#include "DoubleList.h"
 #include "Exception.h"
 
 // Constructor of DoubleLink
@@ -83,10 +83,4 @@ T DoubleLink<T>::back() const {
 template<class T>
 DoubleNode<T> *DoubleLink<T>::head() const {
     return m_head;
-}
-
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
 }

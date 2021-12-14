@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <cassert>
-#include "DoubleLinkedList/DoubleNode.h"
+#include "DoubleNode.h"
 using namespace std;
 
 

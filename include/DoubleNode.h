@@ -8,15 +8,15 @@
 template<class T>
 class DoubleNode {
 public:
-    DoubleNode(T v, DoubleNode* p, DoubleNode* n);
-    template<class T1> DoubleNode<T1> *prev() const;
-    template<class T1> DoubleNode<T1> *next() const;
+    DoubleNode(T v, DoubleNode *p, DoubleNode *n);
+    DoubleNode<T> *prev() const;
+    DoubleNode<T> *next() const;
     T value() const;
     void set_value(T v);
-    template<class T1> void set_prev(DoubleNode<T1> *n);
-    template<class T1> void set_next(DoubleNode<T1> *n);
+    void set_prev(DoubleNode<T> *n);
+    void set_next(DoubleNode<T> *n);
 private:
-    int m_value;
+    T m_value;
     DoubleNode *m_prev;
     DoubleNode *m_next;
 };

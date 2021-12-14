@@ -2,7 +2,8 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
-#include "DoubleLinkedList/DoubleNode.h"
+#include <string>
+#include "DoubleNode.h"
 
 // Constructor of DoubleNode
 template<class T>
@@ -10,15 +11,13 @@ DoubleNode<T>::DoubleNode(T v, DoubleNode *p, DoubleNode *n) : m_value(v), m_pre
 
 // Return the prev DoubleNode
 template<class T>
-template<class T1>
-DoubleNode<T1> *DoubleNode<T>::prev() const {
+DoubleNode<T> *DoubleNode<T>::prev() const {
     return m_prev;
 }
 
 // Return the next DoubleNode
 template<class T>
-template<class T1>
-DoubleNode<T1> *DoubleNode<T>::next() const {
+DoubleNode<T> *DoubleNode<T>::next() const {
     return m_next;
 }
 
@@ -36,14 +35,16 @@ void DoubleNode<T>::set_value(T v) {
 
 // Set the node as prev DoubleNode
 template<class T>
-template<class T1>
-void DoubleNode<T>::set_prev(DoubleNode<T1> *n) {
+void DoubleNode<T>::set_prev(DoubleNode<T> *n) {
     this->m_prev = n;
 }
 
 // Set the node as next DoubleNode
 template<class T>
-template<class T1>
-void DoubleNode<T>::set_next(DoubleNode<T1> *n) {
+void DoubleNode<T>::set_next(DoubleNode<T> *n) {
     this->m_next = n;
 }
+
+template class DoubleNode<int>;
+template class DoubleNode<float>;
+template class DoubleNode<std::string>;
