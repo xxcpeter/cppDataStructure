@@ -6,22 +6,21 @@
 #define DOUBLYLINKEDLIST_DOUBLELINK_H
 #include "DoubleNode.h"
 
-template<class T>
 class DoubleLink {
 public:
     DoubleLink();
     ~DoubleLink();
     bool empty() const;
-    int size() const;
-    T front() const;
-    T back() const;
-    DoubleNode<T> *head() const;
-    T pop_front();
-    T pop_back();
-    void push_front(T v);
-    void push_back(T v);
+    static int size() ;
+    int front() const;
+    int back() const;
+    DoubleNode *head() const;
+    int pop_front();
+    int pop_back();
+    void push_front(int v);
+    void push_back(int v);
 private:
-    DoubleNode<T> *m_head;
-    DoubleNode<T> *m_tail;
+    DoubleNode *m_head;
+    DoubleNode *m_tail;
 };
 #endif //DOUBLYLINKEDLIST_DOUBLELINK_H

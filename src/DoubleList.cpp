@@ -7,80 +7,69 @@
 #include "Exception.h"
 
 // Constructor of DoubleLink
-template<class T>
-DoubleLink<T>::DoubleLink() {
+DoubleLink::DoubleLink() {
     m_head = nullptr;
     m_tail = nullptr;
 }
 
 // Deconstructor of DoubleLink
-template<class T>
-DoubleLink<T>::~DoubleLink() {
+DoubleLink::~DoubleLink() {
     while (!empty()) {
         pop_front();
     }
 }
 
 // Pop out a DoubleNode at front
-template<class T>
-T DoubleLink<T>::pop_front() {
-    T v = m_head->value();
-    DoubleNode<T> *ptr = m_head;
+int DoubleLink::pop_front() {
+    int v = m_head->value();
+    DoubleNode *ptr = m_head;
     m_head = m_head->next();
     delete ptr;
     return v;
 }
 
 // Pop out a DoubleNode at back
-template<class T>
-T DoubleLink<T>::pop_back() {
-    T v = m_tail->value();
-    DoubleNode<T> *ptr = m_tail;
+int DoubleLink::pop_back() {
+    int v = m_tail->value();
+    DoubleNode *ptr = m_tail;
     m_tail = m_tail->prev();
     delete ptr;
     return v;
 }
 
 // Push in a DoubleNode at front
-template<class T>
-void DoubleLink<T>::push_front(T v) {
-    m_head = new DoubleNode<T>(v, nullptr, m_head);
+void DoubleLink::push_front(int v) {
+    m_head = new DoubleNode(v, nullptr, m_head);
     m_head->next();
 }
 
 // Push in a DoubleNode at back
-template<class T>
-void DoubleLink<T>::push_back(T v) {
-    m_tail = new DoubleNode<T>(v, m_tail, nullptr);
+void DoubleLink::push_back(int v) {
+    m_tail = new DoubleNode(v, m_tail, nullptr);
 }
 
 // Return if the DoubleLink is empty
-template<class T>
-bool DoubleLink<T>::empty() const {
+bool DoubleLink::empty() const {
     return m_head == m_tail;
 }
 
 // Return the size of DoubleList
-template<class T>
-int DoubleLink<T>::size() const {
+int DoubleLink::size() {
     return 0;
 }
 
 // Return the value of head
-template<class T>
-T DoubleLink<T>::front() const {
+int DoubleLink::front() const {
     if (empty()) throw underflow();
     return m_head->value();
 }
 
 // Return the value of tail
-template<class T>
-T DoubleLink<T>::back() const {
+int DoubleLink::back() const {
     if (empty()) throw underflow();
     return m_tail->value();
 }
 
-template<class T>
-DoubleNode<T> *DoubleLink<T>::head() const {
+DoubleNode *DoubleLink::head() const {
     return m_head;
 }

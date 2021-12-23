@@ -5,7 +5,6 @@
 #ifndef DOUBLYLINKEDLIST_DOUBLENODE_H
 #define DOUBLYLINKEDLIST_DOUBLENODE_H
 
-
 class DoubleNode {
 public:
     DoubleNode(int v, DoubleNode *p, DoubleNode *n);
