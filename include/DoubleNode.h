@@ -5,18 +5,18 @@
 #ifndef DOUBLYLINKEDLIST_DOUBLENODE_H
 #define DOUBLYLINKEDLIST_DOUBLENODE_H
 
-template<class T>
+
 class DoubleNode {
 public:
-    DoubleNode(T v, DoubleNode *p, DoubleNode *n);
-    DoubleNode<T> *prev() const;
-    DoubleNode<T> *next() const;
-    T value() const;
-    void set_value(T v);
-    void set_prev(DoubleNode<T> *n);
-    void set_next(DoubleNode<T> *n);
+    DoubleNode(int v, DoubleNode *p, DoubleNode *n);
+    DoubleNode *prev() const;
+    DoubleNode *next() const;
+    int value() const;
+    void set_value(int v);
+    void set_prev(DoubleNode *n);
+    void set_next(DoubleNode *n);
 private:
-    T m_value;
+    int m_value;
     DoubleNode *m_prev;
     DoubleNode *m_next;
 };

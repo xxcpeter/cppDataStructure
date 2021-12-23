@@ -6,45 +6,34 @@
 #include "DoubleNode.h"
 
 // Constructor of DoubleNode
-template<class T>
-DoubleNode<T>::DoubleNode(T v, DoubleNode *p, DoubleNode *n) : m_value(v), m_prev(p), m_next(n) {}
+DoubleNode::DoubleNode(int v, DoubleNode *p, DoubleNode *n) : m_value(v), m_prev(p), m_next(n) {}
 
 // Return the prev DoubleNode
-template<class T>
-DoubleNode<T> *DoubleNode<T>::prev() const {
+DoubleNode *DoubleNode::prev() const {
     return m_prev;
 }
 
 // Return the next DoubleNode
-template<class T>
-DoubleNode<T> *DoubleNode<T>::next() const {
+DoubleNode *DoubleNode::next() const {
     return m_next;
 }
 
 // Return the value of this DoubleNode
-template<class T>
-T DoubleNode<T>::value() const {
+int DoubleNode::value() const {
     return m_value;
 }
 
 // Set the value to this DoubleNode
-template<class T>
-void DoubleNode<T>::set_value(T v) {
+void DoubleNode::set_value(int v) {
     this->m_value = v;
 }
 
 // Set the node as prev DoubleNode
-template<class T>
-void DoubleNode<T>::set_prev(DoubleNode<T> *n) {
+void DoubleNode::set_prev(DoubleNode *n) {
     this->m_prev = n;
 }
 
 // Set the node as next DoubleNode
-template<class T>
-void DoubleNode<T>::set_next(DoubleNode<T> *n) {
+void DoubleNode::set_next(DoubleNode *n) {
     this->m_next = n;
 }
-
-template class DoubleNode<int>;
-template class DoubleNode<float>;
-template class DoubleNode<std::string>;
