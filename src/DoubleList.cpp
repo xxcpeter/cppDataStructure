@@ -2,7 +2,6 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
-#include <iostream>
 #include "DoubleList.h"
 #include "Exception.h"
 
@@ -12,7 +11,7 @@ DoubleLink::DoubleLink() {
     m_tail = nullptr;
 }
 
-// Deconstructor of DoubleLink
+// Destructor of DoubleLink
 DoubleLink::~DoubleLink() {
     while (!empty()) {
         pop_front();
@@ -40,7 +39,6 @@ int DoubleLink::pop_back() {
 // Push in a DoubleNode at front
 void DoubleLink::push_front(int v) {
     m_head = new DoubleNode(v, nullptr, m_head);
-    m_head->next();
 }
 
 // Push in a DoubleNode at back
@@ -50,7 +48,7 @@ void DoubleLink::push_back(int v) {
 
 // Return if the DoubleLink is empty
 bool DoubleLink::empty() const {
-    return m_head == m_tail;
+    return m_head == nullptr && m_tail == nullptr;
 }
 
 // Return the size of DoubleList
@@ -72,4 +70,8 @@ int DoubleLink::back() const {
 
 DoubleNode *DoubleLink::head() const {
     return m_head;
+}
+
+DoubleNode *DoubleLink::tail() const {
+    return m_tail;
 }

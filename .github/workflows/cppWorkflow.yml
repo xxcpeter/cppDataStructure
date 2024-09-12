@@ -1,0 +1,45 @@
+name: CMake Build & Test
+
+# Controls when the workflow will run
+on:
+  push:
+    branches:
+      - master   # Run the workflow when pushing to the main branch
+
+  pull_request:
+    branches:
+      - master   # Run on pull requests to the main branch
+
+# Workflow jobs
+jobs:
+  build:
+
+    # Operating System
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up CMake
+      - name: Display github.workspace
+        run: |
+          echo "github.workspace is ${{ github.workspace }}."
+          ls ${{ github.workspace }}
+
+      # Step 3: Create build directory
+      - name: Create build directory
+        run: mkdir -p build
+
+      # Step 4: Run CMake to configure the project
+      - name: Run CMake
+        run: cmake -S . -B build
+
+      # Step 5: Build the project
+      - name: Build project
+        run: cmake --build build
+
+      # Step 6: Run tests (if any)
+      - name: Run tests
+        run: cd build && ctest

@@ -2,7 +2,6 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
-#include <string>
 #include "DoubleNode.h"
 
 // Constructor of DoubleNode
