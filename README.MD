@@ -1,5 +1,5 @@
 # cppDataStructure
-![workflow](https://github.com/xxcpeter/cppDataStructure/actions/workflows/c-cpp.yml/badge.svg)
+![workflow](https://github.com/xxcpeter/cppDataStructure/actions/workflows/cppWorkflow.yml/badge.svg)
 
 A CI test of data structure implemented in C++
 
