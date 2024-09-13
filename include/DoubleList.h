@@ -4,6 +4,7 @@
 
 #ifndef DOUBLYLINKEDLIST_LIST_H
 #define DOUBLYLINKEDLIST_LIST_H
+
 #include "DoubleNode.h"
 
 class DoubleLink {

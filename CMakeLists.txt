@@ -38,8 +38,8 @@ add_executable(DoubleNodeTest
 target_link_libraries(DoubleNodeTest
         PRIVATE
         DoubleLinkedList)
-add_test(DoubleNodeTest
-        ${EXECUTABLE_OUTPUT_DIRECTORY}/DoubleNodeTest)
+add_test(NAME DoubleNodeTest
+        COMMAND DoubleNodeTest)
 
 # Test 2: DoubleListTest
 add_executable(DoubleListTest
@@ -47,5 +47,5 @@ add_executable(DoubleListTest
 target_link_libraries(DoubleListTest
         PRIVATE
         DoubleLinkedList)
-add_test(DoubleListTest
-        ${EXECUTABLE_OUTPUT_DIRECTORY}/DoubleListTest)
+add_test(NAME DoubleListTest
+        COMMAND DoubleListTest)
