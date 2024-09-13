@@ -3,8 +3,8 @@
 //
 
 #include <iostream>
+#include <stdexcept>
 #include "DoubleList.h"
-#include "Exception.h"
 
 // Constructor of DoubleLink
 DoubleLink::DoubleLink() : m_head(nullptr), m_tail(nullptr) {}
@@ -21,20 +21,24 @@ DoubleLink::~DoubleLink() {
 
 // Pop out a DoubleNode at front
 int DoubleLink::pop_front() {
-    if (empty()) throw underflow();
+    if (empty()) throw std::underflow_error("Underflow: Cannot pop from an empty list.");
     const int v = m_head->value();
     DoubleNode *ptr = m_head;
     m_head = m_head->next();
+    if (m_head != nullptr) m_head->set_prev(nullptr);
+    else m_tail = nullptr;
     delete ptr;
     return v;
 }
 
 // Pop out a DoubleNode at back
 int DoubleLink::pop_back() {
-    if (empty()) throw underflow();
+    if (empty()) throw std::underflow_error("Underflow: Cannot pop from an empty list.");
     const int v = m_tail->value();
     DoubleNode *ptr = m_tail;
     m_tail = m_tail->prev();
+    if (m_tail != nullptr) m_tail->set_next(nullptr);
+    else m_head = nullptr;
     delete ptr;
     return v;
 }
@@ -86,13 +90,13 @@ int DoubleLink::size() const {
 
 // Return the value of head
 int DoubleLink::front() const {
-    if (empty()) throw underflow();
+    if (empty()) throw std::range_error("Range: The list is empty.");
     return m_head->value();
 }
 
 // Return the value of tail
 int DoubleLink::back() const {
-    if (empty()) throw underflow();
+    if (empty()) throw std::range_error("Range: The list is empty.");
     return m_tail->value();
 }
 

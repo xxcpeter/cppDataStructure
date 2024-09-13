@@ -2,8 +2,8 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
-#ifndef DOUBLE_NODE_H
-#define DOUBLE_NODE_H
+#ifndef DOUBLYLINKEDLIST_NODE_H
+#define DOUBLYLINKEDLIST_NODE_H
 
 class DoubleNode {
 public:
@@ -20,4 +20,4 @@ private:
     DoubleNode *m_next;
 };
 
-#endif //DOUBLE_NODE_H
+#endif //DOUBLYLINKEDLIST_NODE_H

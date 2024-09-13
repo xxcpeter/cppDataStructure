@@ -27,6 +27,14 @@ int main() {
     std::cout << "Pass" << std::endl;
 
     std::cout << "Test 2...";
+    try {
+        auto v = list.front();
+        std::cout << "Fail" << std::endl;
+    } catch (std::range_error &e) {
+        std::cout << "Pass" << std::endl;
+    }
+
+    std::cout << "Test 3...";
     list.push_front(1);
     assert(list.pop_front() == 1);
     std::cout << "Pass" << std::endl;
