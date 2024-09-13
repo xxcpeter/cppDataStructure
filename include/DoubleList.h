@@ -20,7 +20,7 @@ public:
     int pop_back();
     void push_front(int v);
     void push_back(int v);
-    void print_list() const;
+    void print() const;
 private:
     DoubleNode *m_head;
     DoubleNode *m_tail;

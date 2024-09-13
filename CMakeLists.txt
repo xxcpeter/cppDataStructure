@@ -8,9 +8,9 @@ project(DS)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
 
 # Set path
-set(EXECUTABLE_OUTPUT_PATH
+set(EXECUTABLE_OUTPUT_DIRECTORY
         ${PROJECT_SOURCE_DIR}/bin)
-set(LIBRARY_OUTPUT_PATH
+set(LIBRARY_OUTPUT_DIRECTORY
         ${PROJECT_SOURCE_DIR}/lib)
 
 # Add Library
@@ -22,6 +22,13 @@ target_include_directories(DoubleLinkedList
         PUBLIC
         ${PROJECT_SOURCE_DIR}/include)
 
+# Add Executable
+add_executable(Main
+        src/main.cpp)
+target_link_libraries(Main
+        PRIVATE
+        DoubleLinkedList)
+
 # Test
 enable_testing()
 
@@ -31,8 +38,8 @@ add_executable(DoubleNodeTest
 target_link_libraries(DoubleNodeTest
         PRIVATE
         DoubleLinkedList)
-add_test(test_run
-        ${EXECUTABLE_OUTPUT_PATH}/DoubleNodeTest)
+add_test(DoubleNodeTest
+        ${EXECUTABLE_OUTPUT_DIRECTORY}/DoubleNodeTest)
 
 # Test 2: DoubleListTest
 add_executable(DoubleListTest
@@ -40,5 +47,5 @@ add_executable(DoubleListTest
 target_link_libraries(DoubleListTest
         PRIVATE
         DoubleLinkedList)
-add_test(test_run
-        ${EXECUTABLE_OUTPUT_PATH}/DoubleListTest)
+add_test(DoubleListTest
+        ${EXECUTABLE_OUTPUT_DIRECTORY}/DoubleListTest)

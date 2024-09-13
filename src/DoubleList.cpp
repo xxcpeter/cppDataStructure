@@ -28,6 +28,7 @@ int DoubleLink::pop_front() {
     if (m_head != nullptr) m_head->set_prev(nullptr);
     else m_tail = nullptr;
     delete ptr;
+    ptr = nullptr;
     return v;
 }
 
@@ -40,6 +41,7 @@ int DoubleLink::pop_back() {
     if (m_tail != nullptr) m_tail->set_next(nullptr);
     else m_head = nullptr;
     delete ptr;
+    ptr = nullptr;
     return v;
 }
 
@@ -101,7 +103,7 @@ int DoubleLink::back() const {
 }
 
 // Print the DoubleList
-void DoubleLink::print_list() const {
+void DoubleLink::print() const {
     const DoubleNode *ptr = m_head;
     while (ptr != nullptr) {
         std::cout << ptr->value() << " ";
