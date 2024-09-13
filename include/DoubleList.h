@@ -2,8 +2,8 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
-#ifndef DOUBLELINKEDLIST_DOUBLELINK_H
-#define DOUBLELINKEDLIST_DOUBLELINK_H
+#ifndef DOUBLE_LIST_H
+#define DOUBLE_LIST_H
 #include "DoubleNode.h"
 
 class DoubleLink {
@@ -12,18 +12,17 @@ public:
     ~DoubleLink();
 
     bool empty() const;
-    static int size() ;
     int front() const;
     int back() const;
-    DoubleNode *head() const;
-    DoubleNode *tail() const;
+    int size() const;
 
     int pop_front();
     int pop_back();
     void push_front(int v);
     void push_back(int v);
+    void print_list() const;
 private:
     DoubleNode *m_head;
     DoubleNode *m_tail;
 };
-#endif //DOUBLELINKEDLIST_DOUBLELINK_H
+#endif //DOUBLE_LIST_H

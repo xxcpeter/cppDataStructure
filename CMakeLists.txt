@@ -1,12 +1,19 @@
+# Minimum CMake version
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_CXX_STANDARD_REQUIRED 20)
+
+# Project name
 project(DS)
 
+# Set C++ standard
+set(CMAKE_CXX_STANDARD_REQUIRED 20)
+
+# Set path
 set(EXECUTABLE_OUTPUT_PATH
         ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH
         ${PROJECT_SOURCE_DIR}/lib)
 
+# Add Library
 add_library(DoubleLinkedList
         STATIC
         src/DoubleNode.cpp
@@ -15,12 +22,23 @@ target_include_directories(DoubleLinkedList
         PUBLIC
         ${PROJECT_SOURCE_DIR}/include)
 
+# Test
+enable_testing()
+
+# Test 1: DoubleNodeTest
 add_executable(DoubleNodeTest
         test/DoubleNodeTest.cpp)
 target_link_libraries(DoubleNodeTest
         PRIVATE
         DoubleLinkedList)
-
-enable_testing()
 add_test(test_run
-        ${PROJECT_SOURCE_DIR}/bin/DoubleNodeTest)
+        ${EXECUTABLE_OUTPUT_PATH}/DoubleNodeTest)
+
+# Test 2: DoubleListTest
+add_executable(DoubleListTest
+        test/DoubleListTest.cpp)
+target_link_libraries(DoubleListTest
+        PRIVATE
+        DoubleLinkedList)
+add_test(test_run
+        ${EXECUTABLE_OUTPUT_PATH}/DoubleListTest)

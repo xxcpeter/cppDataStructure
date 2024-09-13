@@ -5,11 +5,10 @@
 #include <iostream>
 #include <cassert>
 #include "DoubleNode.h"
-using namespace std;
 
 
 int main() {
-    cout << "Start DoubleNode Test" << endl;
+    std::cout << "Start DoubleNode Test" << std::endl;
     //        1  <->  2  <->  3
     DoubleNode node1(1, nullptr, nullptr);
     DoubleNode node2(2, &node1, nullptr);
@@ -17,24 +16,24 @@ int main() {
     node1.set_prev(&node3);
     node1.set_next(&node2);
     node2.set_next(&node3);
-    cout << "Testing node1 value..." << endl;
+    std::cout << "Testing node1 value..." << std::endl;
     assert(node1.value() == 1);
-    cout << "Testing node2 value..." << endl;
+    std::cout << "Testing node2 value..." << std::endl;
     assert(node2.value() == 2);
-    cout << "Testing node3 value..." << endl;
+    std::cout << "Testing node3 value..." << std::endl;
     assert(node3.value() == 3);
-    cout << "Testing node1 prev..." << endl;
+    std::cout << "Testing node1 prev..." << std::endl;
     assert(node1.prev() == &node3);
-    cout << "Testing node2 prev..." << endl;
+    std::cout << "Testing node2 prev..." << std::endl;
     assert(node2.prev() == &node1);
-    cout << "Testing node3 prev..." << endl;
+    std::cout << "Testing node3 prev..." << std::endl;
     assert(node3.prev() == &node2);
-    cout << "Testing node1 next..." << endl;
+    std::cout << "Testing node1 next..." << std::endl;
     assert(node1.next() == &node2);
-    cout << "Testing node2 next..." << endl;
+    std::cout << "Testing node2 next..." << std::endl;
     assert(node2.next() == &node3);
-    cout << "Testing node3 next..." << endl;
+    std::cout << "Testing node3 next..." << std::endl;
     assert(node3.next() == &node1);
-    cout << "Finish DoubleNode Test";
+    std::cout << "Finish DoubleNode Test";
     return 0;
 }
