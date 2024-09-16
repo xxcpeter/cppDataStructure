@@ -2,16 +2,19 @@
 // Created by zhuangzm on 2021/12/13.
 //
 
+#include "DoubleList.h"
 #include <iostream>
 #include <stdexcept>
-#include "DoubleList.h"
+
 
 // Constructor of DoubleLink
-DoubleLink::DoubleLink() : m_head(nullptr), m_tail(nullptr) {}
+template <typename T>
+DoubleLink<T>::DoubleLink() : m_head(nullptr), m_tail(nullptr) {}
 
 // Destructor of DoubleLink
-DoubleLink::~DoubleLink() {
-    DoubleNode* ptr = m_head;
+template <typename T>
+DoubleLink<T>::~DoubleLink() {
+    DoubleNode<T> *ptr = m_head;
     while (m_head != nullptr) {
         m_head = m_head->next();
         delete ptr;
@@ -20,10 +23,11 @@ DoubleLink::~DoubleLink() {
 }
 
 // Pop out a DoubleNode at front
-int DoubleLink::pop_front() {
+template <typename T>
+T DoubleLink<T>::pop_front() {
     if (empty()) throw std::underflow_error("Underflow: Cannot pop from an empty list.");
-    const int v = m_head->value();
-    DoubleNode *ptr = m_head;
+    const T v = m_head->value();
+    DoubleNode<T> *ptr = m_head;
     m_head = m_head->next();
     if (m_head != nullptr) m_head->set_prev(nullptr);
     else m_tail = nullptr;
@@ -33,10 +37,11 @@ int DoubleLink::pop_front() {
 }
 
 // Pop out a DoubleNode at back
-int DoubleLink::pop_back() {
+template <typename T>
+T DoubleLink<T>::pop_back() {
     if (empty()) throw std::underflow_error("Underflow: Cannot pop from an empty list.");
-    const int v = m_tail->value();
-    DoubleNode *ptr = m_tail;
+    const T v = m_tail->value();
+    DoubleNode<T> *ptr = m_tail;
     m_tail = m_tail->prev();
     if (m_tail != nullptr) m_tail->set_next(nullptr);
     else m_head = nullptr;
@@ -46,8 +51,9 @@ int DoubleLink::pop_back() {
 }
 
 // Push in a DoubleNode at front
-void DoubleLink::push_front(const int v) {
-    auto* newNode = new DoubleNode(v, nullptr, nullptr);
+template <typename T>
+void DoubleLink<T>::push_front(const T v) {
+    auto* newNode = new DoubleNode<T>(v, nullptr, nullptr);
     if (empty()) {
         m_head = newNode;
         m_tail = m_head;
@@ -59,8 +65,9 @@ void DoubleLink::push_front(const int v) {
 }
 
 // Push in a DoubleNode at back
-void DoubleLink::push_back(const int v) {
-    auto* newNode = new DoubleNode(v, nullptr, nullptr);
+template <typename T>
+void DoubleLink<T>::push_back(const T v) {
+    auto* newNode = new DoubleNode<T>(v, nullptr, nullptr);
     if (empty()) {
         m_head = newNode;
         m_tail = m_head;
@@ -72,39 +79,41 @@ void DoubleLink::push_back(const int v) {
 }
 
 // Return if the DoubleLink is empty
-bool DoubleLink::empty() const {
+template <typename T>
+bool DoubleLink<T>::empty() const {
     return m_head == nullptr;
 }
 
 // Return the size of DoubleList
-int DoubleLink::size() const {
-    if (m_head == nullptr) return 0;
-    else {
-        int cnt = 1;
-        const DoubleNode *ptr = m_head;
-        while (ptr->next() != nullptr) {
-            ptr = ptr->next();
-            cnt++;
-        }
-        return cnt;
+template <typename T>
+int DoubleLink<T>::size() const {
+    int cnt = 0;
+    const DoubleNode<T> *ptr = m_head;
+    while (ptr->next() != nullptr) {
+        ++cnt;
+        ptr = ptr->next();
     }
+    return cnt;
 }
 
 // Return the value of head
-int DoubleLink::front() const {
+template <typename T>
+T DoubleLink<T>::front() const {
     if (empty()) throw std::range_error("Range: The list is empty.");
     return m_head->value();
 }
 
 // Return the value of tail
-int DoubleLink::back() const {
+template <typename T>
+T DoubleLink<T>::back() const {
     if (empty()) throw std::range_error("Range: The list is empty.");
     return m_tail->value();
 }
 
-// Print the DoubleList
-void DoubleLink::print() const {
-    const DoubleNode *ptr = m_head;
+// PrT the DoubleList
+template <typename T>
+void DoubleLink<T>::print() const {
+    const DoubleNode<T> *ptr = m_head;
     while (ptr != nullptr) {
         std::cout << ptr->value() << " ";
         ptr = ptr->next();

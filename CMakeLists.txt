@@ -13,6 +13,7 @@ set(EXECUTABLE_OUTPUT_DIRECTORY
 set(LIBRARY_OUTPUT_DIRECTORY
         ${PROJECT_SOURCE_DIR}/lib)
 
+
 # Add Library
 add_library(DoubleLinkedList
         STATIC
@@ -22,12 +23,22 @@ target_include_directories(DoubleLinkedList
         PUBLIC
         ${PROJECT_SOURCE_DIR}/include)
 
+add_library(Stack
+        STATIC
+        src/Stack.cpp)
+target_include_directories(Stack
+        PUBLIC
+        ${PROJECT_SOURCE_DIR}/include)
+
+
 # Add Executable
 add_executable(Main
         src/main.cpp)
 target_link_libraries(Main
         PRIVATE
-        DoubleLinkedList)
+        DoubleLinkedList
+        Stack)
+
 
 # Test
 enable_testing()

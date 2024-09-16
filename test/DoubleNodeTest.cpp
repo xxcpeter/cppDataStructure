@@ -10,9 +10,9 @@
 int main() {
     std::cout << "Start DoubleNode Test" << std::endl;
     //        1  <->  2  <->  3
-    DoubleNode node1(1, nullptr, nullptr);
-    DoubleNode node2(2, &node1, nullptr);
-    DoubleNode node3(3, &node2, &node1);
+    DoubleNode<int> node1(1, nullptr, nullptr);
+    DoubleNode<int> node2(2, &node1, nullptr);
+    DoubleNode<int> node3(3, &node2, &node1);
     node1.set_prev(&node3);
     node1.set_next(&node2);
     node2.set_next(&node3);

@@ -6,5 +6,6 @@
 #define DATASTRUCTURES_H
 
 #include "DoubleList.h"
+#include "Stack.h"
 
 #endif //DATASTRUCTURES_H

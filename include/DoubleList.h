@@ -7,23 +7,27 @@
 
 #include "DoubleNode.h"
 
+
+template <typename T>
 class DoubleLink {
 public:
     DoubleLink();
     ~DoubleLink();
 
     bool empty() const;
-    int front() const;
-    int back() const;
+    T front() const;
+    T back() const;
     int size() const;
 
-    int pop_front();
-    int pop_back();
-    void push_front(int v);
-    void push_back(int v);
+    T pop_front();
+    T pop_back();
+    void push_front(T v);
+    void push_back(T v);
     void print() const;
 private:
-    DoubleNode *m_head;
-    DoubleNode *m_tail;
+    DoubleNode<T> *m_head;
+    DoubleNode<T> *m_tail;
 };
+
+
 #endif //DOUBLYLINKEDLIST_LIST_H

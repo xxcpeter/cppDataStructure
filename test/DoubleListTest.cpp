@@ -20,7 +20,7 @@ int main() {
     // void push_front(int v);
     // void push_back(int v);
     // void print_list() const;
-    DoubleLink list;
+    DoubleLink<std::string> list;
 
     std::cout << "Test 1...";
     assert(list.empty() == true);
@@ -35,8 +35,8 @@ int main() {
     }
 
     std::cout << "Test 3...";
-    list.push_front(1);
-    assert(list.pop_front() == 1);
+    list.push_front("asd");
+    assert(list.pop_front() == "asd");
     std::cout << "Pass" << std::endl;
 
     std::cout << "Finish DoubleList Test" << std::endl;
