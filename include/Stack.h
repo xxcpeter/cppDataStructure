@@ -34,9 +34,11 @@ private:
 };
 
 
+// Constructor of Stack
 template<typename T>
 Stack<T>::Stack() = default;
 
+// Destructor of Stack
 template<typename T>
 Stack<T>::~Stack() {
     while (m_head != nullptr) {
@@ -47,6 +49,7 @@ Stack<T>::~Stack() {
     }
 }
 
+// Push a new node to the stack
 template<typename T>
 void Stack<T>::push(T v) {
     auto newNode = new Node(v);
@@ -54,6 +57,7 @@ void Stack<T>::push(T v) {
     m_head = newNode;
 }
 
+// Pop out a node from the stack
 template<typename T>
 T Stack<T>::pop() {
     if (m_head == nullptr) throw std::underflow_error("Underflow: Cannot pop from an empty stack.");
@@ -65,17 +69,21 @@ T Stack<T>::pop() {
     return v;
 }
 
+
+// Get the top node of the stack
 template<typename T>
 T Stack<T>::top() {
     if (m_head == nullptr) throw std::range_error("Range Error: Cannot get top from an empty stack.");
     else return m_head;
 }
 
+// Check if the stack is empty
 template<typename T>
 bool Stack<T>::empty() {
     return m_head == nullptr;
 }
 
+// Get the size of the stack
 template<typename T>
 int Stack<T>::size() {
     int cnt = 0;
@@ -87,6 +95,7 @@ int Stack<T>::size() {
     return cnt;
 }
 
+// Overload the operator << for Stack
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const Stack<T>& stack) {
     auto ptr = stack.m_head;
