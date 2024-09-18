@@ -14,49 +14,26 @@ set(LIBRARY_OUTPUT_DIRECTORY
         ${PROJECT_SOURCE_DIR}/lib)
 
 
-# Add Library
-add_library(DoubleLinkedList
-        STATIC
-        src/DoubleNode.cpp
-        src/DoubleList.cpp)
-target_include_directories(DoubleLinkedList
-        PUBLIC
-        ${PROJECT_SOURCE_DIR}/include)
-
-add_library(Stack
-        STATIC
-        src/Stack.cpp)
-target_include_directories(Stack
-        PUBLIC
-        ${PROJECT_SOURCE_DIR}/include)
+# Add Headers
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 
 # Add Executable
 add_executable(Main
         src/main.cpp)
-target_link_libraries(Main
-        PRIVATE
-        DoubleLinkedList
-        Stack)
 
 
 # Test
 enable_testing()
 
-# Test 1: DoubleNodeTest
-add_executable(DoubleNodeTest
-        test/DoubleNodeTest.cpp)
-target_link_libraries(DoubleNodeTest
-        PRIVATE
-        DoubleLinkedList)
-add_test(NAME DoubleNodeTest
-        COMMAND DoubleNodeTest)
+# Test 1: DoublyList Test
+add_executable(DoublyListTest
+        ${PROJECT_SOURCE_DIR}/test/DoublyList_test.cpp)
+add_test(NAME DoublyListTest
+        COMMAND DoublyListTest)
 
-# Test 2: DoubleListTest
-add_executable(DoubleListTest
-        test/DoubleListTest.cpp)
-target_link_libraries(DoubleListTest
-        PRIVATE
-        DoubleLinkedList)
-add_test(NAME DoubleListTest
-        COMMAND DoubleListTest)
+# Test 2: Stack Test
+add_executable(StackTest
+        ${PROJECT_SOURCE_DIR}/test/Stack_test.cpp)
+add_test(NAME StackTest
+        COMMAND StackTest)

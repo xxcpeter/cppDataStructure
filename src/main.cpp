@@ -6,7 +6,7 @@
 #include "DataStructures.h"
 
 int main() {
-    auto* list = new DoubleLink<int>();
+    auto* list = new DoublyList<int>();
     list->push_front(1);
     list->push_front(2);
     list->push_front(3);

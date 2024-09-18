@@ -5,7 +5,7 @@
 #ifndef DATASTRUCTURES_H
 #define DATASTRUCTURES_H
 
-#include "DoubleList.h"
+#include "DoublyList.h"
 #include "Stack.h"
 
 #endif //DATASTRUCTURES_H

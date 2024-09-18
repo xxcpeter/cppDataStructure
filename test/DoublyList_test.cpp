@@ -20,7 +20,7 @@ int main() {
     // void push_front(int v);
     // void push_back(int v);
     // void print_list() const;
-    DoubleLink<std::string> list;
+    DoublyList<std::string> list;
 
     std::cout << "Test 1...";
     assert(list.empty() == true);
